@@ -3,32 +3,35 @@
 using namespace std;
 
 struct lomba {
-    string nama[30];
-    int hasil[30];
+    string nama;
+    int hasil;
 };
 
 int main() {
     int n;
-    lomba peserta;
 
     cout << "input jumlah peserta : "; cin >> n;
+    lomba peserta[n];
+
 
     for(int i=0;i<n;i++) {
-        cout << "\ninput nama peserta : "; getline(cin >> std::ws, peserta.nama[i]);;
-        cout << "input hasil rambutan : "; cin >> peserta.hasil[i];
+        cout << "\ninput nama peserta : "; getline(cin >> std::ws, peserta[i].nama);
+        cout << "input hasil rambutan : "; cin >> peserta[i].hasil;
     }
 
-    int maks = peserta.hasil[0];
+    int maks = peserta[0].hasil;
     string pemenang;
     for(int i=0;i<n;i++) {
-        if(peserta.hasil[i] > maks) {
-            maks = peserta.hasil[i];
-            pemenang = peserta.nama[i];
+        if(peserta[i].hasil > maks) {
+            maks = peserta[i].hasil;
+            pemenang = peserta[i].nama;
         }
     }
 
-    cout << "Pemenang adalah : " << pemenang << endl;
-    cout << "Rambutan untuk Kak ros : " << maks;
+    cout << "\n-------------------------------------";
+    cout << "\nPemenang adalah : " << pemenang;
+    cout << "\nRambutan untuk Kak ros : " << maks;
+    cout << "\n-------------------------------------";
 
     return 0;
 }
